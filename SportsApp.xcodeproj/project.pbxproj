@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0827A459C97DEE6EDF95BD63 /* Pods_SportsApp_SportsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39DC0E3196580D71B551726 /* Pods_SportsApp_SportsAppUITests.framework */; };
 		D9D99B6B22DF10F315102660 /* Pods_SportsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B2D02B20403AA21FA46CB6 /* Pods_SportsApp.framework */; };
+		E3056A5C2AC378E000AFCFAD /* SportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056A5A2AC378E000AFCFAD /* SportsCell.swift */; };
+		E3056A5D2AC378E000AFCFAD /* SportsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3056A5B2AC378E000AFCFAD /* SportsCell.xib */; };
+		E3056A5F2AC37A2A00AFCFAD /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056A5E2AC37A2A00AFCFAD /* SportsViewController.swift */; };
 		E3A335382AC361A00083A2F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A335372AC361A00083A2F4 /* AppDelegate.swift */; };
 		E3A3353A2AC361A00083A2F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A335392AC361A00083A2F4 /* SceneDelegate.swift */; };
 		E3A3353F2AC361A00083A2F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A3353D2AC361A00083A2F4 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 		9692437C4F2300A43C001E59 /* Pods-SportsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsAppTests.release.xcconfig"; path = "Target Support Files/Pods-SportsAppTests/Pods-SportsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		BECECBFF986C7F6DD4632999 /* Pods-SportsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.debug.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D39DC0E3196580D71B551726 /* Pods_SportsApp_SportsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsApp_SportsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3056A5A2AC378E000AFCFAD /* SportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SportsCell.swift; path = "HomeScreen/Components /SportsCell.swift"; sourceTree = SOURCE_ROOT; };
+		E3056A5B2AC378E000AFCFAD /* SportsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SportsCell.xib; path = "HomeScreen/Components /SportsCell.xib"; sourceTree = SOURCE_ROOT; };
+		E3056A5E2AC37A2A00AFCFAD /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SportsViewController.swift; path = "HomeScreen/Components /SportsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E3A335342AC361A00083A2F4 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A335372AC361A00083A2F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A335392AC361A00083A2F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,10 +125,10 @@
 		450CFADE2AC366820048052F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				450CFAE52AC367970048052F /* HomeScreen */,
 				450CFAEA2AC368E00048052F /* TeamDetails */,
 				450CFAE92AC368AB0048052F /* LeaguesDetails */,
 				450CFAE82AC3681D0048052F /* LeaguesScreen */,
-				450CFAE52AC367970048052F /* HomeScreen */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -166,6 +172,7 @@
 		450CFAE52AC367970048052F /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E3056A592AC3788800AFCFAD /* Components  */,
 				450CFAE72AC367AE0048052F /* View */,
 				450CFAE62AC367A10048052F /* ViewModel */,
 			);
@@ -182,6 +189,7 @@
 		450CFAE72AC367AE0048052F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3056A5E2AC37A2A00AFCFAD /* SportsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +271,15 @@
 				080C6C59248FC7EF1E93011F /* Pods_SportsAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3056A592AC3788800AFCFAD /* Components  */ = {
+			isa = PBXGroup;
+			children = (
+				E3056A5A2AC378E000AFCFAD /* SportsCell.swift */,
+				E3056A5B2AC378E000AFCFAD /* SportsCell.xib */,
+			);
+			path = "Components ";
 			sourceTree = "<group>";
 		};
 		E3A3352B2AC361A00083A2F4 = {
@@ -430,6 +447,7 @@
 			files = (
 				E3A335472AC361A30083A2F4 /* LaunchScreen.storyboard in Resources */,
 				E3A335442AC361A30083A2F4 /* Assets.xcassets in Resources */,
+				E3056A5D2AC378E000AFCFAD /* SportsCell.xib in Resources */,
 				E3A3353F2AC361A00083A2F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +578,8 @@
 			files = (
 				E3A335382AC361A00083A2F4 /* AppDelegate.swift in Sources */,
 				E3A335422AC361A00083A2F4 /* SportsApp.xcdatamodeld in Sources */,
+				E3056A5F2AC37A2A00AFCFAD /* SportsViewController.swift in Sources */,
+				E3056A5C2AC378E000AFCFAD /* SportsCell.swift in Sources */,
 				E3A3353A2AC361A00083A2F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,7 +760,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7W7N543YH7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SportsApp/Info.plist;
+				INFOPLIST_FILE = SportsApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -769,7 +789,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7W7N543YH7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SportsApp/Info.plist;
+				INFOPLIST_FILE = SportsApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -27,7 +27,7 @@
         <!--Favorites-->
         <scene sceneID="8xR-Fa-juf">
             <objects>
-                <viewController id="DcI-VN-uEf" sceneMemberID="viewController">
+                <viewController id="DcI-VN-uEf" customClass="FavoriteViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GjM-ao-tKA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,6 +56,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="bAg-du-m1D"/>
+                    <connections>
+                        <outlet property="FavoriteTableView" destination="lzS-Mv-kRN" id="0hC-5h-2XK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJJ-K8-f12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

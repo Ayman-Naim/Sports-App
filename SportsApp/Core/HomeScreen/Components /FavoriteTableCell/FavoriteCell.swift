@@ -16,7 +16,14 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var YoutubeButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        //Editing Image
+        FavoriteImage.layer.borderWidth = 1
+        FavoriteImage.layer.masksToBounds = false
+        FavoriteImage.layer.borderColor = UIColor.black.cgColor
+        FavoriteImage.layer.cornerRadius = FavoriteImage.frame.height/2
+        FavoriteImage.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

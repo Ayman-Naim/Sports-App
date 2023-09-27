@@ -19,6 +19,9 @@
 		45BA04832AC38ECB00E1AFB3 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA04822AC38ECB00E1AFB3 /* FavoriteViewController.swift */; };
 		D9D99B6B22DF10F315102660 /* Pods_SportsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B2D02B20403AA21FA46CB6 /* Pods_SportsApp.framework */; };
 		E3056A5F2AC37A2A00AFCFAD /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056A5E2AC37A2A00AFCFAD /* SportsViewController.swift */; };
+		E36073222AC4804400140386 /* UpCommingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36073202AC4804400140386 /* UpCommingCell.swift */; };
+		E36073232AC4804400140386 /* UpCommingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E36073212AC4804400140386 /* UpCommingCell.xib */; };
+		E360732A2AC48B5500140386 /* AllLeagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36073292AC48B5500140386 /* AllLeagues.swift */; };
 		E3A335382AC361A00083A2F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A335372AC361A00083A2F4 /* AppDelegate.swift */; };
 		E3A3353A2AC361A00083A2F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A335392AC361A00083A2F4 /* SceneDelegate.swift */; };
 		E3A3353F2AC361A00083A2F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A3353D2AC361A00083A2F4 /* Main.storyboard */; };
@@ -68,6 +71,9 @@
 		BECECBFF986C7F6DD4632999 /* Pods-SportsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.debug.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D39DC0E3196580D71B551726 /* Pods_SportsApp_SportsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsApp_SportsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3056A5E2AC37A2A00AFCFAD /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SportsViewController.swift; path = "HomeScreen/Components /SportsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E36073202AC4804400140386 /* UpCommingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCommingCell.swift; sourceTree = "<group>"; };
+		E36073212AC4804400140386 /* UpCommingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpCommingCell.xib; sourceTree = "<group>"; };
+		E36073292AC48B5500140386 /* AllLeagues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeagues.swift; sourceTree = "<group>"; };
 		E3A335342AC361A00083A2F4 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A335372AC361A00083A2F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A335392AC361A00083A2F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		450CFADE2AC366820048052F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E36073242AC48ACA00140386 /* SportAllLeages */,
 				450CFAE52AC367970048052F /* HomeScreen */,
 				450CFAEA2AC368E00048052F /* TeamDetails */,
 				450CFAE92AC368AB0048052F /* LeaguesDetails */,
@@ -301,6 +308,7 @@
 		453719FF2AC47878000A02E0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				E360731F2AC4801C00140386 /* UpCommingCell */,
 				45371A062AC478E2000A02E0 /* SectionHeader */,
 				45371A002AC4789F000A02E0 /* TeamsCell */,
 			);
@@ -341,6 +349,39 @@
 				450CFAF12AC383090048052F /* SportsCollectionCell */,
 			);
 			path = "Components ";
+			sourceTree = "<group>";
+		};
+		E360731F2AC4801C00140386 /* UpCommingCell */ = {
+			isa = PBXGroup;
+			children = (
+				E36073202AC4804400140386 /* UpCommingCell.swift */,
+				E36073212AC4804400140386 /* UpCommingCell.xib */,
+			);
+			path = UpCommingCell;
+			sourceTree = "<group>";
+		};
+		E36073242AC48ACA00140386 /* SportAllLeages */ = {
+			isa = PBXGroup;
+			children = (
+				E36073252AC48B0800140386 /* View */,
+				E36073262AC48B1300140386 /* ViewModel */,
+			);
+			path = SportAllLeages;
+			sourceTree = "<group>";
+		};
+		E36073252AC48B0800140386 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E36073292AC48B5500140386 /* AllLeagues.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E36073262AC48B1300140386 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E3A3352B2AC361A00083A2F4 = {
@@ -508,6 +549,7 @@
 			files = (
 				E3A335472AC361A30083A2F4 /* LaunchScreen.storyboard in Resources */,
 				E3A335442AC361A30083A2F4 /* Assets.xcassets in Resources */,
+				E36073232AC4804400140386 /* UpCommingCell.xib in Resources */,
 				45371A032AC4789F000A02E0 /* TeamsCell.xib in Resources */,
 				45BA04802AC38D0600E1AFB3 /* SportsCell.xib in Resources */,
 				E3A3353F2AC361A00083A2F4 /* Main.storyboard in Resources */,
@@ -642,12 +684,14 @@
 				E3A335382AC361A00083A2F4 /* AppDelegate.swift in Sources */,
 				45BA04812AC38D0600E1AFB3 /* SportsCell.swift in Sources */,
 				E3A335422AC361A00083A2F4 /* SportsApp.xcdatamodeld in Sources */,
+				E36073222AC4804400140386 /* UpCommingCell.swift in Sources */,
 				45BA04832AC38ECB00E1AFB3 /* FavoriteViewController.swift in Sources */,
 				45371A042AC4789F000A02E0 /* TeamsCell.swift in Sources */,
 				45371A0A2AC478F5000A02E0 /* LeaguesCollectionViewController.swift in Sources */,
 				45371A082AC478E2000A02E0 /* SectionHeader.swift in Sources */,
 				E3056A5F2AC37A2A00AFCFAD /* SportsViewController.swift in Sources */,
 				450CFAF52AC383630048052F /* FavoriteCell.swift in Sources */,
+				E360732A2AC48B5500140386 /* AllLeagues.swift in Sources */,
 				E3A3353A2AC361A00083A2F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

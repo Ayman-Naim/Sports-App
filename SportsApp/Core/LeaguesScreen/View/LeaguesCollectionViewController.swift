@@ -67,7 +67,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
 
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseIdentifier", for: indexPath)
-
+            
             return cell
 
         case 1:
@@ -145,7 +145,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
                                               , heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.97)
                                                , heightDimension: .absolute(225))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize
                                                        , subitems: [item])
@@ -157,6 +157,9 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
                                                         , bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         section.boundarySupplementaryItems = [self.supplementtryHeader()]
+        
+        //animation
+        section.visibleItemsInvalidationHandler = { (items, offset, environment) in     items.forEach { item in     let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0);     let minScale: CGFloat = 0.8;     let maxScale: CGFloat = 1.0;     let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale);     item.transform = CGAffineTransform(scaleX: scale, y: scale)     }}
         return section
     }
 
@@ -185,7 +188,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
                                               , heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.45)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.47)
                                                , heightDimension: .absolute(150))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
                                                      , subitems: [item])
@@ -197,6 +200,10 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
                                                         , bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [self.supplementtryHeader()]
+        
+        //animation
+        section.visibleItemsInvalidationHandler = { (items, offset, environment) in     items.forEach { item in     let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0);     let minScale: CGFloat = 0.8;     let maxScale: CGFloat = 1.0;     let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale);     item.transform = CGAffineTransform(scaleX: scale, y: scale)     }}
+        
         return section
     }
 

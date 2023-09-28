@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SportsViewController: UIViewController  {
+class SportsViewController: UIViewController, UINavigationControllerDelegate {
     var twoCellsLAyout = false
     @IBOutlet weak var SportsCollectionView: UICollectionView!
     
@@ -20,14 +20,14 @@ class SportsViewController: UIViewController  {
         
         
         
+        /// naviagtion Bar congig
+        let addButton = UIBarButtonItem(image:UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(LayoutClicked(_:)))
+        addButton.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem = addButton
+        navigationController?.navigationBar.topItem?.title = "Sports"
         SportsCollectionView.register(UINib(nibName: "SportsCell", bundle: nil), forCellWithReuseIdentifier: "SportsCell")
      
-        let margin: CGFloat = 25
-        guard let flowLayout = SportsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-
-        flowLayout.minimumInteritemSpacing = margin
-            flowLayout.minimumLineSpacing = margin
-            flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+       
        
       
     }
@@ -46,6 +46,9 @@ class SportsViewController: UIViewController  {
     }
     
 }
+
+
+
 
 class CustomFlowLayout: UICollectionViewFlowLayout {
 
@@ -87,7 +90,7 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  SportsCollectionView.dequeueReusableCell(withReuseIdentifier: "SportsCell", for: indexPath) as! SportsCell
-        //cell.backgroundColor = .systemGray3
+        cell.backgroundColor = .black
          cell.CellImage.contentMode = .scaleAspectFill
          cell.CellImage.clipsToBounds = true
         switch indexPath.row{
@@ -116,6 +119,9 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        
+        CellMargins()
+        
         if twoCellsLAyout{
             let noOfCellsInRow = 2  //number of column you want
                let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
@@ -141,6 +147,16 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
         
     }
     
+    
+    func CellMargins(){
+        
+        let margin: CGFloat = 25
+        guard let flowLayout = SportsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+
+        flowLayout.minimumInteritemSpacing = margin
+            flowLayout.minimumLineSpacing = margin
+            flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+    }
  
     
     

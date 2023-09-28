@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
+        <!--Favorite View Controller-->
         <scene sceneID="8xR-Fa-juf">
             <objects>
                 <viewController id="DcI-VN-uEf" customClass="FavoriteViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,6 +19,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ic-5s-NcU">
                                 <rect key="frame" x="0.0" y="50" width="393" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Favourites" id="Uyx-fh-iev"/>
                                 </items>
@@ -40,14 +41,14 @@
                             <constraint firstAttribute="trailing" secondItem="5Ic-5s-NcU" secondAttribute="trailing" id="nOT-Me-LMt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="bAg-du-m1D"/>
+                    <navigationItem key="navigationItem" id="bZN-nM-qAo"/>
                     <connections>
                         <outlet property="FavoriteTableView" destination="lzS-Mv-kRN" id="0hC-5h-2XK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJJ-K8-f12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95" y="302"/>
+            <point key="canvasLocation" x="831.29770992366412" y="301.40845070422534"/>
         </scene>
         <!--All Leagues-->
         <scene sceneID="H4b-px-2M2">
@@ -90,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5D-Pl-h4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947" y="282"/>
+            <point key="canvasLocation" x="1872.5190839694656" y="281.69014084507046"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oZu-rA-aUy">
@@ -177,7 +178,7 @@
             </objects>
             <point key="canvasLocation" x="973.28244274809151" y="1007.7464788732395"/>
         </scene>
-        <!--Sports-->
+        <!--Sports View Controller-->
         <scene sceneID="I4L-wX-xIQ">
             <objects>
                 <viewController id="QZv-1O-3x6" customClass="SportsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,21 +186,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iey-02-H9W">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44"/>
-                                <items>
-                                    <navigationItem title="Sports" id="IBw-Uf-Ng4">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="kdX-p9-hc0">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="LayoutClicked:" destination="QZv-1O-3x6" id="Y6F-a0-mci"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h34-EJ-ivm">
-                                <rect key="frame" x="0.0" y="94" width="393" height="675"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VbV-Sy-Y7g">
                                     <size key="itemSize" width="128" height="128"/>
@@ -217,23 +205,20 @@
                         <viewLayoutGuide key="safeArea" id="sNh-dq-UDi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="h34-EJ-ivm" firstAttribute="top" secondItem="1VH-3U-Qcp" secondAttribute="top" constant="94" id="3yq-nG-G0i"/>
                             <constraint firstItem="sNh-dq-UDi" firstAttribute="trailing" secondItem="h34-EJ-ivm" secondAttribute="trailing" id="KFs-Rj-gc7"/>
                             <constraint firstItem="h34-EJ-ivm" firstAttribute="leading" secondItem="sNh-dq-UDi" secondAttribute="leading" id="Ruc-hG-CEk"/>
-                            <constraint firstItem="sNh-dq-UDi" firstAttribute="bottom" secondItem="h34-EJ-ivm" secondAttribute="bottom" id="U3A-2T-wQJ"/>
-                            <constraint firstItem="iey-02-H9W" firstAttribute="leading" secondItem="1VH-3U-Qcp" secondAttribute="leading" id="gXN-K0-lou"/>
-                            <constraint firstItem="iey-02-H9W" firstAttribute="top" secondItem="1VH-3U-Qcp" secondAttribute="top" constant="50" id="kWs-yG-pi0"/>
-                            <constraint firstAttribute="trailing" secondItem="iey-02-H9W" secondAttribute="trailing" id="mmB-qz-Yrw"/>
-                            <constraint firstItem="h34-EJ-ivm" firstAttribute="top" secondItem="iey-02-H9W" secondAttribute="bottom" id="tj4-dQ-1bO"/>
+                            <constraint firstAttribute="bottom" secondItem="h34-EJ-ivm" secondAttribute="bottom" id="U3A-2T-wQJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sports" image="basketball" catalog="system" id="Pc0-uD-wig"/>
+                    <navigationItem key="navigationItem" id="YOf-ue-dt1"/>
                     <connections>
                         <outlet property="SportsCollectionView" destination="h34-EJ-ivm" id="Oc9-Ca-iMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aF-OW-rIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-30" y="-482"/>
+            <point key="canvasLocation" x="895.41984732824426" y="-482.3943661971831"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kla-Z1-WZj">
@@ -248,8 +233,8 @@
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QZv-1O-3x6" kind="relationship" relationship="viewControllers" id="w82-Qy-6Sv"/>
-                        <segue destination="DcI-VN-uEf" kind="relationship" relationship="viewControllers" id="iCn-Df-mh6"/>
+                        <segue destination="oLI-4H-3JA" kind="relationship" relationship="viewControllers" id="w82-Qy-6Sv"/>
+                        <segue destination="ykc-Fp-enF" kind="relationship" relationship="viewControllers" id="iCn-Df-mh6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRi-tk-Mce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -309,13 +294,50 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LlZ-Tl-JXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="-469"/>
+            <point key="canvasLocation" x="1808.3969465648854" y="-469.0140845070423"/>
+        </scene>
+        <!--Sports-->
+        <scene sceneID="js0-sc-5DW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oLI-4H-3JA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sports" image="basketball" catalog="system" id="Pc0-uD-wig"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bYL-R3-ysy">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QZv-1O-3x6" kind="relationship" relationship="rootViewController" id="jpE-NA-9v2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTr-pq-Mm1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31.297709923664122" y="-482.3943661971831"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="bmY-6L-UWd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ykc-Fp-enF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="bAg-du-m1D"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sSH-th-LsN">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DcI-VN-uEf" kind="relationship" relationship="rootViewController" id="MOg-X8-sHb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIA-XY-T3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.419847328244273" y="301.40845070422534"/>
         </scene>
     </scenes>
     <resources>
         <image name="basketball" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -1,13 +1,13 @@
 //
-//  UpCommingCell.swift
-//  SportsApp
+//  LatestCell.swift
+//  ProjectCollectionn
 //
-//  Created by ayman on 27/09/2023.
+//  Created by Heba Elcc on 28.9.2023.
 //
 
 import UIKit
 
-class UpCommingCell: UICollectionViewCell {
+class LatestCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

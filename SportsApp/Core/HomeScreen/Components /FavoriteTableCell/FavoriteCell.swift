@@ -2,7 +2,7 @@
 //  FavoriteCell.swift
 //  SportsApp
 //
-//  Created by Shimaa Elcc on 27.9.2023.
+//  Created by Heba Elcc on 27.9.2023.
 //
 
 import UIKit

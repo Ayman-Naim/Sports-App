@@ -2,7 +2,7 @@
 //  SportsCell.swift
 //  SportsApp
 //
-//  Created by ayman on 26/09/2023.
+//  Created by Heba on 26/09/2023.
 //
 
 import UIKit

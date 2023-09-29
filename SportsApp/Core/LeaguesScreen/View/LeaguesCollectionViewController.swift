@@ -89,7 +89,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
             
             switch indexPath.section {
             case 0 :
-                sectionHeader.HeaderTitle?.text = "Incoming Events"
+                sectionHeader.HeaderTitle?.text = "Upcoming Events"
                 return sectionHeader
                 
             case 1 :

@@ -9,6 +9,7 @@ target 'SportsApp' do
   pod 'NVActivityIndicatorView'
   pod 'Alamofire'
   pod 'Kingfisher', '~> 7.0'
+  pod 'lottie-ios'
 
 
   target 'SportsAppTests' do

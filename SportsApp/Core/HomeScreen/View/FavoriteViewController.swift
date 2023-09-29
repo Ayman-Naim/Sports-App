@@ -17,7 +17,7 @@ class FavoriteViewController : UIViewController, UITableViewDelegate , UITableVi
         FavoriteTableView.dataSource = self
         
         FavoriteTableView.register(UINib(nibName: "FavoriteCell", bundle: nil), forCellReuseIdentifier: "FavoriteCell")
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
     
 
         // Do any additional setup after loading the view.

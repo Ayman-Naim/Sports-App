@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k9f-me-TR6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -9,38 +9,34 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="P4c-Md-pQ4">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                <viewController id="k9f-me-TR6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="duX-TB-Vm9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-86-heb">
-                                <rect key="frame" x="63.666666666666657" y="388.66666666666669" width="266" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="EYP-rk-ad2"/>
-                                    <constraint firstAttribute="width" constant="266" id="avd-b5-TuQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sports" translatesAutoresizingMaskIntoConstraints="NO" id="5D8-JB-faX">
+                                <rect key="frame" x="76.666666666666686" y="298.33333333333331" width="240" height="255.33333333333331"/>
+                            </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="dam-Hl-GdI"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="Ldl-86-heb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="CaJ-l2-qtd"/>
-                            <constraint firstItem="Ldl-86-heb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Vj5-Nd-nFX"/>
+                            <constraint firstItem="5D8-JB-faX" firstAttribute="height" secondItem="duX-TB-Vm9" secondAttribute="height" multiplier="0.3" id="MXA-MO-Jpo"/>
+                            <constraint firstItem="5D8-JB-faX" firstAttribute="centerX" secondItem="duX-TB-Vm9" secondAttribute="centerX" id="WaJ-oF-R9c"/>
+                            <constraint firstItem="5D8-JB-faX" firstAttribute="centerY" secondItem="duX-TB-Vm9" secondAttribute="centerY" id="rU9-pk-PBv"/>
+                            <constraint firstItem="5D8-JB-faX" firstAttribute="width" secondItem="duX-TB-Vm9" secondAttribute="width" multiplier="0.610687" id="zbP-Zu-FjL"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szA-jq-5UW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+            <point key="canvasLocation" x="884.73282442748086" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Sports" width="400" height="600"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

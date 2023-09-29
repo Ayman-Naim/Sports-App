@@ -25,21 +25,28 @@ class SportsViewController: UIViewController, UINavigationControllerDelegate {
         addButton.tintColor = UIColor.black
         navigationItem.rightBarButtonItem = addButton
         navigationController?.navigationBar.topItem?.title = "Sports"
+        
+        //config the collectionView Custom Cell
         SportsCollectionView.register(UINib(nibName: "SportsCell", bundle: nil), forCellWithReuseIdentifier: "SportsCell")
         
        
-        self.navigationItem.setHidesBackButton(true, animated: true)
-       
-      
     }
     
-   
+   //sort function
      @IBAction func LayoutClicked(_ sender: Any) {
-      
+       
          if twoCellsLAyout{
+             let addButton = UIBarButtonItem(image:UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(LayoutClicked(_:)))
+             addButton.tintColor = UIColor.black
+             navigationItem.rightBarButtonItem = addButton
+             
+            
              twoCellsLAyout = false
          }
          else {
+             let addButton = UIBarButtonItem(image:UIImage(systemName: "square.grid.2x2"), style: .plain, target: self, action: #selector(LayoutClicked(_:)))
+             addButton.tintColor = UIColor.black
+             navigationItem.rightBarButtonItem = addButton
              twoCellsLAyout = true
          }
     
@@ -57,25 +64,8 @@ class CustomFlowLayout: UICollectionViewFlowLayout {
 
         super.prepare()
 
-        if let collectionView = collectionView {
-
-            let availableWidth = collectionView.bounds.width - sectionInset.left - sectionInset.right
-
-            
-
-            // You can adjust this value to control the spacing between cells
-
-            let minimumSpacing: CGFloat = 4.0
-
-            
-
-            let itemWidth = (availableWidth - minimumSpacing) * 0.2 // Number of items per row
-
-            itemSize = CGSize(width: itemWidth, height: itemWidth) // Set both width and height to make it square
-
-            minimumInteritemSpacing = minimumSpacing
-
-        }
+        
+        
 
     }
 
@@ -96,28 +86,61 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
          cell.CellImage.clipsToBounds = true
         switch indexPath.row{
         case 0 :
-            cell.CellLabel.text  = "Football"
-              cell.CellImage.image =  UIImage(named: "2")
+            cell.CellLabel.text  = SportsCategory.Football.rawValue
+              cell.CellImage.image =  UIImage(named: SportsCategory.Football.Image )
         case 1 :
-            cell.CellLabel.text  = "BasketBall"
-              cell.CellImage.image =  UIImage(named: "2")
+            cell.CellLabel.text  = SportsCategory.BasketBall.rawValue
+            cell.CellImage.image =  UIImage(named: SportsCategory.BasketBall.Image )
         case 2 :
-            cell.CellLabel.text  = "Cricket"
-              cell.CellImage.image =  UIImage(named: "2")
+            cell.CellLabel.text  = SportsCategory.Cricket.rawValue
+            cell.CellImage.image =  UIImage(named: SportsCategory.Cricket.Image )
         default:
-            cell.CellLabel.text  = "Tennis"
-              cell.CellImage.image =  UIImage(named: "2")
+            cell.CellLabel.text  = SportsCategory.Tennis.rawValue
+            cell.CellImage.image =  UIImage(named: SportsCategory.Tennis.Image )
         }
         
         
       
   
-    
+      
        
         
         
         return cell
     }
+    
+    
+    
+    // item clicked
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let AllLeaguesVc = storyboard?.instantiateViewController(withIdentifier: "AllLeagues") as? AllLeagues else { return }
+        switch indexPath.row{
+           
+        case 0 :
+            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
+            
+        case 1 :
+            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
+            
+        case 2 :
+            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
+            
+        default:
+            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         

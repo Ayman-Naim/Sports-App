@@ -26,8 +26,9 @@ class SportsViewController: UIViewController, UINavigationControllerDelegate {
         navigationItem.rightBarButtonItem = addButton
         navigationController?.navigationBar.topItem?.title = "Sports"
         SportsCollectionView.register(UINib(nibName: "SportsCell", bundle: nil), forCellWithReuseIdentifier: "SportsCell")
-     
+        
        
+        self.navigationItem.setHidesBackButton(true, animated: true)
        
       
     }

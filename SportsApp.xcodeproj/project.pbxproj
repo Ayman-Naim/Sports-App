@@ -12,7 +12,6 @@
 		450985862AC6449200E51120 /* LatestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450985842AC6449200E51120 /* LatestCell.xib */; };
 		450985892AC644F300E51120 /* IncomingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450985872AC644F300E51120 /* IncomingCell.xib */; };
 		4509858A2AC644F300E51120 /* IncomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450985882AC644F300E51120 /* IncomingCell.swift */; };
-		4509858C2AC7178600E51120 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4509858B2AC7178600E51120 /* APIManager.swift */; };
 		450CFAF52AC383630048052F /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CFAF32AC383630048052F /* FavoriteCell.swift */; };
 		450CFAF62AC383630048052F /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450CFAF42AC383630048052F /* FavoriteCell.xib */; };
 		45371A032AC4789F000A02E0 /* TeamsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45371A012AC4789F000A02E0 /* TeamsCell.xib */; };
@@ -68,7 +67,6 @@
 		450985842AC6449200E51120 /* LatestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestCell.xib; sourceTree = "<group>"; };
 		450985872AC644F300E51120 /* IncomingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomingCell.xib; sourceTree = "<group>"; };
 		450985882AC644F300E51120 /* IncomingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingCell.swift; sourceTree = "<group>"; };
-		4509858B2AC7178600E51120 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		450CFAF32AC383630048052F /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		450CFAF42AC383630048052F /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		45371A012AC4789F000A02E0 /* TeamsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamsCell.xib; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		450CFAE12AC366990048052F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4509858B2AC7178600E51120 /* APIManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -763,7 +760,6 @@
 				E324BB692AC6F24800045CF5 /* SportsCategory.swift in Sources */,
 				45371A0A2AC478F5000A02E0 /* LeaguesCollectionViewController.swift in Sources */,
 				45371A082AC478E2000A02E0 /* SectionHeader.swift in Sources */,
-				4509858C2AC7178600E51120 /* APIManager.swift in Sources */,
 				E3056A5F2AC37A2A00AFCFAD /* SportsViewController.swift in Sources */,
 				450CFAF52AC383630048052F /* FavoriteCell.swift in Sources */,
 				E360732A2AC48B5500140386 /* AllLeagues.swift in Sources */,

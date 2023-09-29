@@ -14,12 +14,19 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         super.viewDidLoad()
         //LeaguesTable.delegate = self
         //LeaguesTable.dataSource = self
-        
+       
         LeaguesTable.register(UINib(nibName: "FavoriteCell", bundle: nil), forCellReuseIdentifier: "FavoriteCell")
-
+        let Back = UIBarButtonItem( image: UIImage(systemName: "arrowshape.turn.up.backward.circle"), style: .plain, target: self, action: #selector((Back)))
+        Back.tintColor = UIColor.black
+        navigationItem.leftBarButtonItem = Back
     
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+     @IBAction func Back(){
+        self.navigationController?.popViewController(animated:true)
     }
     
     //MARK- TableView Functions

@@ -1,5 +1,5 @@
 //
-//  ffViewController.swift
+//  HomenavViewController.swift
 //  SportsApp
 //
 //  Created by ayman on 29/09/2023.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class HomenavViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = true
-        //self.navigationItem.setHidesBackButton(true, animated: true)
+
         // Do any additional setup after loading the view.
     }
     

@@ -22,16 +22,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rgl-CO-Oxd">
                                 <rect key="frame" x="0.0" y="20.666666666666671" width="240" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="G78-Li-Ukw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G78-Li-Ukw">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="3N7-UX-Yo0"/>
                                             <constraint firstAttribute="width" constant="70" id="TaU-CU-qFK"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOs-o0-Z6l">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOs-o0-Z6l">
                                         <rect key="frame" x="80" y="24.666666666666671" width="160" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -77,7 +77,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="2" width="564" height="564"/>
         <image name="Youtube" width="16" height="16"/>
     </resources>
 </document>

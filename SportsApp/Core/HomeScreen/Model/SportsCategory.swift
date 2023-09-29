@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum SportsCategory :String {
+enum SportsCategory :String, CaseIterable {
     case Football = "Football"
     case BasketBall = "BasketBall"
     case Cricket  = "Cricket"

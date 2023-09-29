@@ -10,9 +10,7 @@ import UIKit
 class SportsViewController: UIViewController, UINavigationControllerDelegate {
     var twoCellsLAyout = false
     @IBOutlet weak var SportsCollectionView: UICollectionView!
-    
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         SportsCollectionView.delegate = self
@@ -115,27 +113,18 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
     
     // item clicked
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let AllLeaguesVc = storyboard?.instantiateViewController(withIdentifier: "AllLeagues") as? AllLeagues else { return }
-        switch indexPath.row{
-           
-        case 0 :
-            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
-            
-        case 1 :
-            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
-            
-        case 2 :
-            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
-            
-        default:
-            self.navigationController?.pushViewController(AllLeaguesVc, animated: true)
-            
-            
+   //     let vc = AllLeagues(viewModel: LeagesViewModel(sport: "football"))
+
+
+        let viewModel = LeagesViewModel(sport: SportsCategory.allCases[indexPath.item].rawValue.lowercased())
+
+        if let allLeaguesVc = storyboard?.instantiateViewController(withIdentifier: "AllLeagues") as? AllLeagues {
+            allLeaguesVc.viewModel = viewModel
+
+            self.navigationController?.pushViewController(allLeaguesVc, animated: true)
+        } else {
+            print("Failed to instantiate 'AllLeagues' view controller")
         }
-        
-        
-        
         
     }
     

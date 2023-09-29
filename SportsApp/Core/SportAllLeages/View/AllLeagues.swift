@@ -57,8 +57,13 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         cell.FavoriteLabel.text = self.LeagesResult?[indexPath.row].league_name
         //cell.FavoriteImage
         
+        
+        
         if let imageUrl = URL(string: self.LeagesResult?[indexPath.row].league_logo ?? "") {
             cell.FavoriteImage.kf.setImage(with: imageUrl)
+        }
+        else{
+            cell.FavoriteImage.image = UIImage(named: "placeHolder")
         }
 //        cell.youtubeURL = self.LeagesResult?[indexPath.row].youtubeURL
 

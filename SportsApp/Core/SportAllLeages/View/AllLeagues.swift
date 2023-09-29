@@ -7,11 +7,23 @@
 
 import UIKit
 
+
+
 class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource {
-    
+    var LeagesResult : [Leagues]?
     @IBOutlet weak var LeaguesTable: UITableView!
+    
+    var viewModel = LeagesViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        LeagesResult = [Leagues]()
+        viewModel.fetch { [weak self] leages in
+            self?.LeagesResult = leages
+            self?.LeaguesTable.reloadData()
+        }
+       
         //LeaguesTable.delegate = self
         //LeaguesTable.dataSource = self
        
@@ -31,11 +43,16 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
     
     //MARK- TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        print("Debug\(self.LeagesResult?.count)")
+        return self.LeagesResult?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = LeaguesTable.dequeueReusableCell(withIdentifier: "FavoriteCell") as! FavoriteCell
+        
+        cell.FavoriteLabel.text = self.LeagesResult?[indexPath.row].league_name
+        //cell.FavoriteImage
+        
         
         return cell
     }

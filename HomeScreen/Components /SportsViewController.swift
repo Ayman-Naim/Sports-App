@@ -88,6 +88,8 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
         case 0 :
             cell.CellLabel.text  = SportsCategory.Football.rawValue
               cell.CellImage.image =  UIImage(named: SportsCategory.Football.Image )
+            
+            
         case 1 :
             cell.CellLabel.text  = SportsCategory.BasketBall.rawValue
             cell.CellImage.image =  UIImage(named: SportsCategory.BasketBall.Image )

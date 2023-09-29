@@ -30,6 +30,9 @@
 		E328A1A02AC66B5300120F83 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E328A19F2AC66B5300120F83 /* SplashScreen.storyboard */; };
 		E328A1A22AC67F8300120F83 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E328A1A12AC67F8300120F83 /* TabBarController.swift */; };
 		E360732A2AC48B5500140386 /* AllLeagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36073292AC48B5500140386 /* AllLeagues.swift */; };
+		E3A2A0B52AC71B4F00528944 /* ApiManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2A0B42AC71B4F00528944 /* ApiManger.swift */; };
+		E3A2A0B82AC71BD800528944 /* LeagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2A0B72AC71BD800528944 /* LeagesModel.swift */; };
+		E3A2A0BA2AC723AB00528944 /* LeagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2A0B92AC723AB00528944 /* LeagesViewModel.swift */; };
 		E3A335382AC361A00083A2F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A335372AC361A00083A2F4 /* AppDelegate.swift */; };
 		E3A3353A2AC361A00083A2F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A335392AC361A00083A2F4 /* SceneDelegate.swift */; };
 		E3A3353F2AC361A00083A2F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A3353D2AC361A00083A2F4 /* Main.storyboard */; };
@@ -90,6 +93,9 @@
 		E328A19F2AC66B5300120F83 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		E328A1A12AC67F8300120F83 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E36073292AC48B5500140386 /* AllLeagues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeagues.swift; sourceTree = "<group>"; };
+		E3A2A0B42AC71B4F00528944 /* ApiManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiManger.swift; path = SportsApp/Core/LaunchScreen/SplashView/ApiManger.swift; sourceTree = SOURCE_ROOT; };
+		E3A2A0B72AC71BD800528944 /* LeagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagesModel.swift; sourceTree = "<group>"; };
+		E3A2A0B92AC723AB00528944 /* LeagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagesViewModel.swift; sourceTree = "<group>"; };
 		E3A335342AC361A00083A2F4 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A335372AC361A00083A2F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A335392AC361A00083A2F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		450CFAE02AC366920048052F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2A0B42AC71B4F00528944 /* ApiManger.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,6 +434,7 @@
 		E36073242AC48ACA00140386 /* SportAllLeages */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2A0B62AC71BC300528944 /* Model */,
 				E36073252AC48B0800140386 /* View */,
 				E36073262AC48B1300140386 /* ViewModel */,
 			);
@@ -444,8 +452,17 @@
 		E36073262AC48B1300140386 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2A0B92AC723AB00528944 /* LeagesViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E3A2A0B62AC71BC300528944 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3A2A0B72AC71BD800528944 /* LeagesModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E3A3352B2AC361A00083A2F4 = {
@@ -750,11 +767,14 @@
 			files = (
 				E3A335382AC361A00083A2F4 /* AppDelegate.swift in Sources */,
 				45BA04812AC38D0600E1AFB3 /* SportsCell.swift in Sources */,
+				E3A2A0B82AC71BD800528944 /* LeagesModel.swift in Sources */,
 				4509858A2AC644F300E51120 /* IncomingCell.swift in Sources */,
 				E324BB6B2AC70B4000045CF5 /* HomenavViewController.swift in Sources */,
 				E3A335422AC361A00083A2F4 /* SportsApp.xcdatamodeld in Sources */,
 				E328A19A2AC663F600120F83 /* AnimatedLaunchScreen.swift in Sources */,
+				E3A2A0B52AC71B4F00528944 /* ApiManger.swift in Sources */,
 				450985852AC6449200E51120 /* LatestCell.swift in Sources */,
+				E3A2A0BA2AC723AB00528944 /* LeagesViewModel.swift in Sources */,
 				45BA04832AC38ECB00E1AFB3 /* FavoriteViewController.swift in Sources */,
 				45371A042AC4789F000A02E0 /* TeamsCell.swift in Sources */,
 				E324BB692AC6F24800045CF5 /* SportsCategory.swift in Sources */,

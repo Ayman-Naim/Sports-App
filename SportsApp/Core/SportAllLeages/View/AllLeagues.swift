@@ -6,15 +6,20 @@
 //
 
 import UIKit
-
+import Kingfisher
 
 
 class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource {
     var LeagesResult : [Leagues]?
     @IBOutlet weak var LeaguesTable: UITableView!
     
-    var viewModel = LeagesViewModel()
+    var viewModel: LeagesViewModel!
     
+    
+    convenience init(viewModel: LeagesViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,6 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         // Do any additional setup after loading the view.
     }
     
-    
      @IBAction func Back(){
         self.navigationController?.popViewController(animated:true)
     }
@@ -53,7 +57,11 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         cell.FavoriteLabel.text = self.LeagesResult?[indexPath.row].league_name
         //cell.FavoriteImage
         
-        
+        if let imageUrl = URL(string: self.LeagesResult?[indexPath.row].league_logo ?? "") {
+            cell.FavoriteImage.kf.setImage(with: imageUrl)
+        }
+//        cell.youtubeURL = self.LeagesResult?[indexPath.row].youtubeURL
+
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

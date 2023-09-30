@@ -33,10 +33,11 @@ import Foundation
 class LeagesViewModel {
     var LeagesResult: [Leagues]?
     var url : String?
-   // var sport: String?
+    var sport: String?
     
-    init(url: String) {
+    init(url: String , sport: String) {
         self.url = url
+        self.sport = sport
         LeagesResult = [Leagues]()
     }
 

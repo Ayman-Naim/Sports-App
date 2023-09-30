@@ -119,12 +119,14 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
       //  let viewModel:LeagesViewModel?
 
         if let allLeaguesVc = storyboard?.instantiateViewController(withIdentifier: "AllLeagues") as? AllLeagues {
+            
+            //SportsCategory.allCases[indexPath.item].rawValue.lowercased()
            // allLeaguesVc.viewModel.url = SportsCategory
             switch indexPath.item {
-            case 0:  allLeaguesVc.viewModel =  LeagesViewModel(url: SportsCategory.Football.Url)
-            case 1:  allLeaguesVc.viewModel = LeagesViewModel(url:SportsCategory.BasketBall.Url)
-            case 2:  allLeaguesVc.viewModel = LeagesViewModel(url: SportsCategory.Cricket.Url)
-            default: allLeaguesVc.viewModel = LeagesViewModel(url: SportsCategory.Tennis.Url)
+            case 0:  allLeaguesVc.viewModel =  LeagesViewModel(url: SportsCategory.Football.Url , sport: "football")
+            case 1:  allLeaguesVc.viewModel = LeagesViewModel(url:SportsCategory.BasketBall.Url , sport: "basketball")
+            case 2:  allLeaguesVc.viewModel = LeagesViewModel(url: SportsCategory.Cricket.Url , sport: "cricket")
+            default: allLeaguesVc.viewModel = LeagesViewModel(url: SportsCategory.Tennis.Url , sport: "tennis")
               
             }
          

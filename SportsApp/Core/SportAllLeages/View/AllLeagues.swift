@@ -94,7 +94,7 @@ extension AllLeagues {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let LeageDetailVc =  storyboard?.instantiateViewController(withIdentifier: "LeaguesCollectionViewController") as? LeaguesCollectionViewController{
-            LeageDetailVc.viewModel = LeagesDetailsViewModel(id: LeagesResult?[indexPath.row].league_key ?? 0)
+            LeageDetailVc.viewModel = LeagesDetailsViewModel(id: LeagesResult?[indexPath.row].league_key ?? 0 , sport: viewModel.sport ?? "football")
             self.navigationController?.pushViewController(LeageDetailVc, animated: true)
         }
         else{

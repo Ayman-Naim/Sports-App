@@ -244,7 +244,7 @@
         <!--Leagues Collection View Controller-->
         <scene sceneID="yUD-Xp-CIY">
             <objects>
-                <collectionViewController id="a6i-77-U7h" customClass="LeaguesCollectionViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="LeaguesCollectionViewController" id="a6i-77-U7h" customClass="LeaguesCollectionViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sTz-7i-RFo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,6 +291,9 @@
                             <outlet property="delegate" destination="a6i-77-U7h" id="CZF-vT-awI"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="LeagesDetailsCollection" destination="sTz-7i-RFo" id="IYc-T5-NWq"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LlZ-Tl-JXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -25,8 +25,10 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         super.viewDidLoad()
         LeagesResult = [Leagues]()
         viewModel.fetch { [weak self] leages in
-            self?.LeagesResult = leages
-            self?.LeaguesTable.reloadData()
+                self?.LeagesResult = leages
+                self?.LeaguesTable.reloadData()
+            
+                    
         }
        
         //LeaguesTable.delegate = self
@@ -44,6 +46,14 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
      @IBAction func Back(){
         self.navigationController?.popViewController(animated:true)
     }
+    
+   
+    
+    
+}
+
+
+extension AllLeagues {
     
     //MARK- TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,8 +75,9 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         else{
             cell.FavoriteImage.image = UIImage(named: "placeHolder")
         }
-//        cell.youtubeURL = self.LeagesResult?[indexPath.row].youtubeURL
-
+        //        cell.youtubeURL = self.LeagesResult?[indexPath.row].youtubeURL
+        
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,9 +85,17 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
     }
     
     
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let LeageDetailVc =  storyboard?.instantiateViewController(withIdentifier: "LeaguesCollectionViewController") as? LeaguesCollectionViewController{
+            
+            LeageDetailVc.viewModel = LeagesDetailsViewModel(url: "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=4&from=2023-09-30&to=2024-10-10&APIkey=7dbbe4899351e7c403259b7b2f31e9bf9aaba8a00cb18487724163d013402aaf")
+            
+            self.navigationController?.pushViewController(LeageDetailVc, animated: true)
+            
+        }
+        else{
+            print("Failed to instantiate 'AllLeagues' view controller")
+        }
+        
+    }
 }
-
-
-

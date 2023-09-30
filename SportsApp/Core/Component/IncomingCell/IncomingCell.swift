@@ -11,6 +11,16 @@ class IncomingCell: UICollectionViewCell {
 
     @IBOutlet weak var BackgroundImage: UIImageView!
     
+    @IBOutlet weak var matchTime: UILabel!
+    
+    @IBOutlet weak var matchDate: UILabel!
+    
+    @IBOutlet weak var HomeTeamLogo:UIImageView!
+    
+    @IBOutlet weak var HomeTeamName: UILabel!
+    
+    @IBOutlet weak var AwayTeamLogo: UIImageView!
+    @IBOutlet weak var awayTeamName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
 //        

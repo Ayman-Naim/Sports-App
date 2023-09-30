@@ -166,8 +166,8 @@ extension LeaguesCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0 : return upcommingMatches?.count ?? 1
-        case 1 : return latestMatches?.count ?? 1
+        case 0 : return upcommingMatches?.count ?? 0
+        case 1 : return latestMatches?.count ?? 0
         default: return 8
         }
         
@@ -180,35 +180,49 @@ extension LeaguesCollectionViewController {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IncomingCell", for: indexPath) as! IncomingCell
            
-            if let imageUrl = URL(string: self.upcommingMatches?[indexPath.row].home_team_logo ?? "") {
+            if let imageUrl = URL(string: viewModel.sport == "basketball" ?  self.upcommingMatches?[indexPath.row].event_home_team_logo ?? "" : self.upcommingMatches?[indexPath.row].home_team_logo ?? "") {
                 cell.HomeTeamLogo.kf.setImage(with: imageUrl)
             }
-            if let imageUrl = URL(string: self.upcommingMatches?[indexPath.row].away_team_logo ?? "") {
+            if let imageUrl = URL(string: viewModel.sport == "basketball" ?  self.upcommingMatches?[indexPath.row].event_away_team_logo ?? "" : self.upcommingMatches?[indexPath.row].away_team_logo ?? "") {
                 cell.AwayTeamLogo.kf.setImage(with: imageUrl)
             }
             /*if let imageUrl = URL(string: self.upcommingMatches?[indexPath.row].league_logo ?? "") {
                 cell.BackgroundImage.kf.setImage(with: imageUrl)
             }*/
-            else{ cell.BackgroundImage.image = UIImage(named: "league")}
-            cell.HomeTeamName.text = self.upcommingMatches?[indexPath.row].event_home_team
-            cell.awayTeamName.text = self.upcommingMatches?[indexPath.row].event_away_team
+            else{
+            cell.BackgroundImage.image = UIImage(named: "league")}
+            cell.HomeTeamName.text = viewModel.sport == "tennis" ? self.upcommingMatches?[indexPath.row].event_first_player ?? " ":
+                self.upcommingMatches?[indexPath.row].event_home_team ?? ""
+            
+            cell.awayTeamName.text = viewModel.sport == "tennis" ? self.upcommingMatches?[indexPath.row].event_second_player ?? " ":
+            self.upcommingMatches?[indexPath.row].event_away_team ?? ""
+            
+            
             cell.matchTime.text = self.upcommingMatches?[indexPath.row].event_time
             cell.matchDate.text = self.upcommingMatches?[indexPath.row].event_date
             return cell
             
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IncomingCell", for: indexPath) as! IncomingCell
-            if let imageUrl = URL(string: self.latestMatches?[indexPath.row].home_team_logo ?? "") {
+            if let imageUrl = URL(string: viewModel.sport == "basketball" ?  self.latestMatches?[indexPath.row].event_home_team_logo ?? "" : self.latestMatches?[indexPath.row].home_team_logo ?? "") {
                 cell.HomeTeamLogo.kf.setImage(with: imageUrl)
             }
-            if let imageUrl = URL(string: self.latestMatches?[indexPath.row].away_team_logo ?? "") {
+            if let imageUrl = URL(string: viewModel.sport == "basketball" ?  self.latestMatches?[indexPath.row].event_away_team_logo ?? "" : self.latestMatches?[indexPath.row].away_team_logo ?? "") {
                 cell.AwayTeamLogo.kf.setImage(with: imageUrl)
             }
-            cell.HomeTeamName.text = self.latestMatches?[indexPath.row].event_home_team
-            cell.awayTeamName.text = self.latestMatches?[indexPath.row].event_away_team
+            
+            cell.HomeTeamName.text = viewModel.sport == "tennis" ? self.latestMatches?[indexPath.row].event_first_player ?? " ":
+                self.latestMatches?[indexPath.row].event_home_team ?? ""
+            
+            cell.awayTeamName.text = viewModel.sport == "tennis" ? self.latestMatches?[indexPath.row].event_second_player ?? " ":
+            self.latestMatches?[indexPath.row].event_away_team ?? ""
+            
+            
             
             cell.matchTime.text = "Match Finished"
-
+            
+            cell.matchDate.text = self.latestMatches?[indexPath.row].event_final_result
+            
 
         
             return cell

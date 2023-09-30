@@ -292,7 +292,7 @@
                         </connections>
                     </collectionView>
                     <connections>
-                        <outlet property="LeagesDetailsCollection" destination="sTz-7i-RFo" id="IYc-T5-NWq"/>
+                        <outlet property="LeagesDetailsCollection" destination="sTz-7i-RFo" id="U1M-58-9F7"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LlZ-Tl-JXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

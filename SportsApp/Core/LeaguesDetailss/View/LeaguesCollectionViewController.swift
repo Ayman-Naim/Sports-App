@@ -5,6 +5,7 @@
 //  Created by Heba Elcc on 27.9.2023.
 //
 //
+
 import UIKit
 import Kingfisher
 
@@ -12,6 +13,8 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
     
     @IBOutlet var LeagesDetailsCollection: UICollectionView!
     var upcommingMatches : [upcommingEvents]?
+    var latestMatches : [upcommingEvents]?
+
     var viewModel : LeagesDetailsViewModel!
     
     convenience init(viewModel: LeagesDetailsViewModel) {
@@ -45,6 +48,12 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
         upcommingMatches = [upcommingEvents]()
         viewModel.fetch { [weak self] leagesUpEvent in
             self?.upcommingMatches = leagesUpEvent
+            self?.LeagesDetailsCollection.reloadData()
+            
+        }
+        
+        viewModel.fetchLatestEvents { [weak self] latestMatches in
+            self?.latestMatches = latestMatches
             self?.LeagesDetailsCollection.reloadData()
             
         }
@@ -158,7 +167,7 @@ extension LeaguesCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0 : return upcommingMatches?.count ?? 1
-        case 1 : return 8
+        case 1 : return latestMatches?.count ?? 1
         default: return 8
         }
         
@@ -180,7 +189,7 @@ extension LeaguesCollectionViewController {
             /*if let imageUrl = URL(string: self.upcommingMatches?[indexPath.row].league_logo ?? "") {
                 cell.BackgroundImage.kf.setImage(with: imageUrl)
             }*/
-            else{ cell.BackgroundImage.image = UIImage(named: "placeHolder")}
+            else{ cell.BackgroundImage.image = UIImage(named: "league")}
             cell.HomeTeamName.text = self.upcommingMatches?[indexPath.row].event_home_team
             cell.awayTeamName.text = self.upcommingMatches?[indexPath.row].event_away_team
             cell.matchTime.text = self.upcommingMatches?[indexPath.row].event_time
@@ -188,7 +197,20 @@ extension LeaguesCollectionViewController {
             return cell
             
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LatestCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IncomingCell", for: indexPath) as! IncomingCell
+            if let imageUrl = URL(string: self.latestMatches?[indexPath.row].home_team_logo ?? "") {
+                cell.HomeTeamLogo.kf.setImage(with: imageUrl)
+            }
+            if let imageUrl = URL(string: self.latestMatches?[indexPath.row].away_team_logo ?? "") {
+                cell.AwayTeamLogo.kf.setImage(with: imageUrl)
+            }
+            cell.HomeTeamName.text = self.latestMatches?[indexPath.row].event_home_team
+            cell.awayTeamName.text = self.latestMatches?[indexPath.row].event_away_team
+            
+            cell.matchTime.text = "Match Finished"
+
+
+        
             return cell
             
         case 2:

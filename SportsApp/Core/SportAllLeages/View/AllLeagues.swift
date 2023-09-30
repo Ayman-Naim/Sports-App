@@ -4,6 +4,12 @@
 //
 //  Created by ayman on 27/09/2023.
 //
+//
+//  AllLeagues.swift
+//  SportsApp
+//
+//  Created by ayman on 27/09/2023.
+//
 
 import UIKit
 import Kingfisher
@@ -30,6 +36,7 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
             
                     
         }
+        
        
         //LeaguesTable.delegate = self
         //LeaguesTable.dataSource = self
@@ -87,11 +94,8 @@ extension AllLeagues {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let LeageDetailVc =  storyboard?.instantiateViewController(withIdentifier: "LeaguesCollectionViewController") as? LeaguesCollectionViewController{
-            
-            LeageDetailVc.viewModel = LeagesDetailsViewModel(url: "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=4&from=2023-09-30&to=2024-10-10&APIkey=7dbbe4899351e7c403259b7b2f31e9bf9aaba8a00cb18487724163d013402aaf")
-            
+            LeageDetailVc.viewModel = LeagesDetailsViewModel(id: LeagesResult?[indexPath.row].league_key ?? 0)
             self.navigationController?.pushViewController(LeageDetailVc, animated: true)
-            
         }
         else{
             print("Failed to instantiate 'AllLeagues' view controller")

@@ -116,15 +116,23 @@ extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSo
    //     let vc = AllLeagues(viewModel: LeagesViewModel(sport: "football"))
 
 
-        let viewModel = LeagesViewModel(sport: SportsCategory.allCases[indexPath.item].rawValue.lowercased())
+      //  let viewModel:LeagesViewModel?
 
         if let allLeaguesVc = storyboard?.instantiateViewController(withIdentifier: "AllLeagues") as? AllLeagues {
-            allLeaguesVc.viewModel = viewModel
-
+           // allLeaguesVc.viewModel.url = SportsCategory
+            switch indexPath.item {
+            case 0:  allLeaguesVc.viewModel =  LeagesViewModel(url: SportsCategory.Football.Url)
+            case 1:  allLeaguesVc.viewModel = LeagesViewModel(url:SportsCategory.BasketBall.Url)
+            case 2:  allLeaguesVc.viewModel = LeagesViewModel(url: SportsCategory.Cricket.Url)
+            default: allLeaguesVc.viewModel = LeagesViewModel(url: SportsCategory.Tennis.Url)
+              
+            }
+         
             self.navigationController?.pushViewController(allLeaguesVc, animated: true)
         } else {
             print("Failed to instantiate 'AllLeagues' view controller")
         }
+        
         
     }
     

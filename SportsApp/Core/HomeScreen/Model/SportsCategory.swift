@@ -14,10 +14,10 @@ enum SportsCategory :String, CaseIterable {
     
     var Url :String {
         switch self {
-        case .Football: return " "
-        case .BasketBall: return " "
-        case .Cricket: return " "
-        case .Tennis: return " "
+        case .Football: return "https://apiv2.allsportsapi.com/football/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
+        case .BasketBall: return "https://apiv2.allsportsapi.com/basketball/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
+        case .Cricket: return "https://apiv2.allsportsapi.com/cricket/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
+        case .Tennis: return "https://apiv2.allsportsapi.com/tennis/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
             
         }
     }
@@ -31,5 +31,12 @@ enum SportsCategory :String, CaseIterable {
             
         }
     }
+    
+}
+
+
+enum ApiKey :String {
+    case apikey = "7dbbe4899351e7c403259b7b2f31e9bf9aaba8a00cb18487724163d013402aaf"
+    
     
 }

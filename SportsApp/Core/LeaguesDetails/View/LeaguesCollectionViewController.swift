@@ -14,7 +14,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
     @IBOutlet var LeagesDetailsCollection: UICollectionView!
     var upcommingMatches : [upcommingEvents]?
     var latestMatches : [upcommingEvents]?
-
+    var Teams : [Int:TeamsDetails]?
     var viewModel : LeagesDetailsViewModel!
     
     convenience init(viewModel: LeagesDetailsViewModel) {
@@ -27,7 +27,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
         collectionView.register(UINib(nibName: "TeamsCell", bundle: nil), forCellWithReuseIdentifier: "TeamsCell")
         collectionView.register(UINib(nibName: "IncomingCell", bundle: nil), forCellWithReuseIdentifier: "IncomingCell")
         collectionView.register(UINib(nibName: "LatestCell", bundle: nil), forCellWithReuseIdentifier: "LatestCell")
-        
+        Teams = [Int:TeamsDetails]()
         upcommingMatches = [upcommingEvents]()
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
             switch sectionIndex {
@@ -48,19 +48,58 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
         upcommingMatches = [upcommingEvents]()
         viewModel.fetch { [weak self] leagesUpEvent in
             self?.upcommingMatches = leagesUpEvent
-            self?.LeagesDetailsCollection.reloadData()
+            self?.getTeams()
+           // print(self?.Teams?.count)
+           // print("Teams:\(self?.Teams!)")
+            self?.LeagesDetailsCollection.reloadSections(IndexSet(integer: 0))
+            self?.LeagesDetailsCollection.reloadSections(IndexSet(integer: 2))
+            //self?.LeagesDetailsCollection.reloadData()
             
         }
         
         viewModel.fetchLatestEvents { [weak self] latestMatches in
+           
             self?.latestMatches = latestMatches
+            self?.getTeams()
+            //print("Teams:\(self?.Teams!.count)")
+            self?.LeagesDetailsCollection.reloadSections(IndexSet(integer: 1))
+            self?.LeagesDetailsCollection.reloadSections(IndexSet(integer: 2))
             self?.LeagesDetailsCollection.reloadData()
             
         }
         
+        
     }
-        
-        
+    func getTeams (){
+        if let upcomming = upcommingMatches {
+            for index in upcommingMatches!{
+                if ((Teams?[index.home_team_key!]) == nil){
+                    Teams?[index.home_team_key!] = TeamsDetails(TeamName: index.event_home_team , teamLogo: index.home_team_logo)
+                }
+                if ((Teams?[index.away_team_key!]) == nil){
+                    Teams?[index.away_team_key!] = TeamsDetails(TeamName: index.event_away_team , teamLogo: index.away_team_logo)
+                }
+                
+                
+                
+            }
+            if let latest = latestMatches {
+                for index in latestMatches!{
+                    if ((Teams?[index.home_team_key!]) == nil){
+                        Teams?[index.home_team_key!] = TeamsDetails(TeamName: index.event_home_team , teamLogo: index.event_home_team_logo)
+                    }
+                    if ((Teams?[index.away_team_key!]) == nil){
+                        Teams?[index.away_team_key!] = TeamsDetails(TeamName: index.event_away_team , teamLogo: index.event_away_team_logo)
+                    }
+                    
+                }
+                
+                
+            }
+            
+            //LeagesDetailsCollection.reloadSections(IndexSet(integer: 2))
+        }
+    }
         //MARK: 3 Functions for 3 sections (Upcoming Events - Latest Events - Teams)
         
         func UpcomingEvents()-> NSCollectionLayoutSection {
@@ -168,7 +207,7 @@ extension LeaguesCollectionViewController {
         switch section {
         case 0 : return upcommingMatches?.count ?? 0
         case 1 : return latestMatches?.count ?? 0
-        default: return 8
+        default: return Teams?.count ?? 0
         }
         
     }
@@ -230,10 +269,40 @@ extension LeaguesCollectionViewController {
         case 2:
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamsCell", for: indexPath) as! TeamsCell
+           // print(Teams?[0].value)
+            
+            let index = Array(Teams!.keys)[indexPath.row]
+           
+           // print(index)
+           // print(Teams?[index]?.TeamName)
+            
+            cell.TeamName.text = Teams?[index]?.TeamName
+            if let imageUrl = URL(string: Teams?[index]?.teamLogo ?? ""){
+                cell.TeamImage.kf.setImage(with:imageUrl)
+                
+            }
+            else{
+                cell.TeamImage.image = UIImage(named: "placeHolder")
+            }
             return cell
             
         default:
             return UICollectionViewCell()
+        }
+    }
+    
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            
+            if let TeamDetailVc  = storyboard?.instantiateViewController(withIdentifier: "TeamDetailVc") as? TeamDetails{
+                self.navigationController?.pushViewController(TeamDetailVc, animated: true)
+                
+            }
+            else{
+                print("Cant institiate vc")
+            }
         }
     }
     
@@ -268,9 +337,13 @@ extension LeaguesCollectionViewController {
         return UICollectionViewCell()
     }
     
+    
+    
+    
     //MARK: Functions For Animation
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }
+
 

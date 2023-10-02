@@ -15,6 +15,8 @@ struct LeaguesDetailsModel : Codable{
 struct upcommingEvents : Codable{
     var event_home_team :String?
     var event_away_team :String?
+    var home_team_key :Int?
+    var away_team_key : Int?
     var event_home_team_logo: String?
     var event_away_team_logo: String?
     var event_status : String?

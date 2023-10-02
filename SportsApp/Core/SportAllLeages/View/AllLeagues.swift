@@ -64,7 +64,7 @@ extension AllLeagues {
     
     //MARK- TableView Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Debug\(self.LeagesResult?.count)")
+      //  print("Debug\(self.LeagesResult?.count)")
         return self.LeagesResult?.count ?? 0
     }
     

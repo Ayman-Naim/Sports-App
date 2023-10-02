@@ -31,7 +31,7 @@ class ApiManger {
         
         switch response.result {
         case .success(let decodedData):
-            print("DeBug: \(response)")
+           // print("DeBug: \(response)")
             completion(decodedData, nil)
         case .failure(let error):
             completion(nil, error)

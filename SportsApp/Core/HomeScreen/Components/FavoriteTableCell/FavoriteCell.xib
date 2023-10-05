@@ -46,10 +46,14 @@
                                             <constraint firstAttribute="height" constant="40" id="Esc-9u-W7C"/>
                                             <constraint firstAttribute="width" constant="40" id="U67-P2-kIM"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.63921568630000003" green="0.38431372549999998" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="Youtube"/>
+                                            <backgroundConfiguration key="background" image="heart" catalog="system"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="favoriteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RMC-Yz-SNb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -71,12 +75,12 @@
             <connections>
                 <outlet property="FavoriteImage" destination="G78-Li-Ukw" id="t9w-yk-9Qz"/>
                 <outlet property="FavoriteLabel" destination="EOs-o0-Z6l" id="IzO-yO-dx3"/>
-                <outlet property="YoutubeButton" destination="cNG-9F-OIX" id="9Ub-D4-Vf4"/>
+                <outlet property="favoriteButton" destination="cNG-9F-OIX" id="4ZZ-BH-Iug"/>
             </connections>
             <point key="canvasLocation" x="135.87786259541986" y="41.197183098591552"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Youtube" width="16" height="16"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
     </resources>
 </document>

@@ -49,8 +49,8 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
         viewModel.fetch { [weak self] leagesUpEvent in
             self?.upcommingMatches = leagesUpEvent
             self?.getTeams()
-           // print(self?.Teams?.count)
-           // print("Teams:\(self?.Teams!)")
+            // print(self?.Teams?.count)
+            // print("Teams:\(self?.Teams!)")
             self?.LeagesDetailsCollection.reloadSections(IndexSet(integer: 0))
             self?.LeagesDetailsCollection.reloadSections(IndexSet(integer: 2))
             //self?.LeagesDetailsCollection.reloadData()
@@ -58,7 +58,7 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
         }
         
         viewModel.fetchLatestEvents { [weak self] latestMatches in
-           
+            
             self?.latestMatches = latestMatches
             self?.getTeams()
             //print("Teams:\(self?.Teams!.count)")
@@ -73,33 +73,37 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
     func getTeams (){
         if let upcomming = upcommingMatches {
             for index in upcommingMatches!{
-                if ((Teams?[index.home_team_key!]) == nil){
-                    Teams?[index.home_team_key!] = TeamsDetails(TeamName: index.event_home_team , teamLogo: index.home_team_logo)
+                if ((Teams?[viewModel.sport=="tennis" ? index.first_player_key! : index.home_team_key!]) == nil){
+                    Teams?[viewModel.sport=="tennis" ? index.first_player_key! : index.home_team_key!] = TeamsDetails(TeamName: index.event_home_team , teamLogo: viewModel.sport=="basketball" ? index.event_home_team_logo: viewModel.sport=="cricket" ?  index.event_home_team_logo :index.home_team_logo )
                 }
-                if ((Teams?[index.away_team_key!]) == nil){
-                    Teams?[index.away_team_key!] = TeamsDetails(TeamName: index.event_away_team , teamLogo: index.away_team_logo)
+                if ((Teams?[viewModel.sport=="tennis" ? index.second_player_key! : index.away_team_key!]) == nil){
+                    Teams?[viewModel.sport=="tennis" ? index.second_player_key! : index.away_team_key!] = TeamsDetails(TeamName: index.event_away_team , teamLogo: viewModel.sport=="basketball" ? index.event_away_team_logo: viewModel.sport=="cricket" ?  index.event_away_team_logo : index.away_team_logo)
                 }
                 
                 
                 
             }
-            if let latest = latestMatches {
-                for index in latestMatches!{
-                    if ((Teams?[index.home_team_key!]) == nil){
-                        Teams?[index.home_team_key!] = TeamsDetails(TeamName: index.event_home_team , teamLogo: index.event_home_team_logo)
-                    }
-                    if ((Teams?[index.away_team_key!]) == nil){
-                        Teams?[index.away_team_key!] = TeamsDetails(TeamName: index.event_away_team , teamLogo: index.event_away_team_logo)
-                    }
+        }
+        if let latest = latestMatches {
+            for index in latestMatches!{
+                if ((Teams?[viewModel.sport=="tennis" ? index.first_player_key! : index.home_team_key!]) == nil){
                     
+                    Teams?[viewModel.sport=="tennis" ? index.first_player_key! : index.home_team_key!] = TeamsDetails(TeamName: index.event_home_team , teamLogo: viewModel.sport=="basketball" ? index.event_home_team_logo: viewModel.sport=="cricket" ?  index.event_home_team_logo :index.home_team_logo )
                 }
-                
+                if ((Teams?[viewModel.sport=="tennis" ? index.second_player_key! : index.away_team_key!]) == nil){
+                    
+                    Teams?[viewModel.sport=="tennis" ? index.second_player_key! : index.away_team_key!] = TeamsDetails(TeamName: index.event_away_team , teamLogo: viewModel.sport=="basketball" ? index.event_away_team_logo: viewModel.sport=="cricket" ?  index.event_away_team_logo : index.away_team_logo)
+                }
                 
             }
             
-            //LeagesDetailsCollection.reloadSections(IndexSet(integer: 2))
+            
         }
+        
+        //LeagesDetailsCollection.reloadSections(IndexSet(integer: 2))
     }
+
+    
         //MARK: 3 Functions for 3 sections (Upcoming Events - Latest Events - Teams)
         
         func UpcomingEvents()-> NSCollectionLayoutSection {
@@ -297,6 +301,9 @@ extension LeaguesCollectionViewController {
         if indexPath.section == 2 {
             
             if let TeamDetailVc  = storyboard?.instantiateViewController(withIdentifier: "TeamDetailVc") as? TeamDetails{
+                let index = Array(Teams!.keys)[indexPath.row]
+                TeamDetailVc.viewModel = TeamDetailViewModel(id: index , sport: self.viewModel.sport ?? "football")
+               
                 self.navigationController?.pushViewController(TeamDetailVc, animated: true)
                 
             }

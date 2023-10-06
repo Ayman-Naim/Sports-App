@@ -77,7 +77,18 @@ extension AllLeagues {
         
         
         if let imageUrl = URL(string: self.LeagesResult?[indexPath.row].league_logo ?? "") {
-            cell.FavoriteImage.kf.setImage(with: imageUrl)
+            cell.FavoriteImage.kf.setImage(with: imageUrl,placeholder: UIImage(named: "placeHolder"),options: [.callbackQueue(.mainAsync)]){
+                sucsees in
+                switch sucsees
+                {
+                case .success(_):
+                    break
+//                            print("Task done for: \(value.source.url?.absoluteString ?? "")")
+                case .failure(_):
+                    cell.FavoriteImage?.image = UIImage(named:"placeHolder")
+                    
+                }
+            }
         }
         else{
             cell.FavoriteImage.image = UIImage(named: "placeHolder")

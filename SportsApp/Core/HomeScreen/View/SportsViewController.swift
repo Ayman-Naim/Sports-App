@@ -56,7 +56,7 @@ class SportsViewController: UIViewController, UINavigationControllerDelegate {
 
 
 
-class CustomFlowLayout: UICollectionViewFlowLayout {
+/*class CustomFlowLayout: UICollectionViewFlowLayout {
 
     override func prepare() {
 
@@ -67,7 +67,7 @@ class CustomFlowLayout: UICollectionViewFlowLayout {
 
     }
 
-}
+}*/
 
 extension SportsViewController :UICollectionViewDelegate ,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

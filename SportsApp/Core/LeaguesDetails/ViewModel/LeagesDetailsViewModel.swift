@@ -25,24 +25,39 @@ class LeagesDetailsViewModel  {
        // print("ggg:\(currentDate)")
         LeagesEvents = [upcommingEvents]()
     }
-    
+    var url : String{
+        let date = getDates()
+        if(self.sport)=="cricket"{
+      
+            return "https://apiv2.allsportsapi.com/\(sport ?? "football")?met=Fixtures&leagueId=\(id ?? 0)&from=from=\(date.CurrentData)&to=\(date.NextDate)&APIkey=\(ApiKey.apikey.rawValue)"
+        }
+        else if self.sport == "tennis" {
+        return "https://apiv2.allsportsapi.com/\(sport ?? "football")/?met=Fixtures&leagueId=\(id ?? 0)&from=from=\(date.CurrentData)&to=\(date.NextDate)&APIkey=\(ApiKey.apikey.rawValue)"
+            
+
+        }
+        else {
+           return "https://apiv2.allsportsapi.com/\(sport ?? "football")?met=Fixtures&leagueId=\(id ?? 0)&from=\(date.CurrentData)&to=\(date.NextDate)&APIkey=\(ApiKey.apikey.rawValue)"
+        }
+    }
     
     func fetch(completionHandler: @escaping ([upcommingEvents]?) -> Void) {
         // Call the fetchLeagues function from ApiManger to fetch data from the API
         let date = getDates()
-        ApiManger.SharedApiManger.fetchLeagues(url: "https://apiv2.allsportsapi.com/\(sport ?? "football")?met=Fixtures&leagueId=\(id ?? 0)&from=\(date.CurrentData)&to=\(date.NextDate)&APIkey=7dbbe4899351e7c403259b7b2f31e9bf9aaba8a00cb18487724163d013402aaf", decodingModel: LeaguesDetailsModel.self) { data, error in
+        ApiManger.SharedApiManger.fetchLeagues(url:"https://apiv2.allsportsapi.com/\(sport ?? "football")?met=Fixtures&leagueId=\(id ?? 0)&\(sport=="tennis" ? "from=" : sport=="cricket" ? "from=" :"")from=\(date.CurrentData)&to=\(date.NextDate)&APIkey=\(ApiKey.apikey.rawValue)", decodingModel: LeaguesDetailsModel.self) { data, error in
             // Handle the API response
             
             completionHandler(data?.result)
             self.LeagesEvents = data?.result
-            //   print("Events:\(data)")
+            print("Events:\(data)-\(self.id) - \(self.sport)")
         }
+        
     }
     
     func fetchLatestEvents(completionHandler: @escaping ([upcommingEvents]?) -> Void) {
         // Call the fetchLeagues function from ApiManger to fetch data from the API
         let date = getDates()
-        ApiManger.SharedApiManger.fetchLeagues(url: "https://apiv2.allsportsapi.com/\(sport ?? "football")?met=Fixtures&leagueId=\(id ?? 0)&from=\(date.PastDate)&to=\(date.yesterDay)&APIkey=7dbbe4899351e7c403259b7b2f31e9bf9aaba8a00cb18487724163d013402aaf", decodingModel: LeaguesDetailsModel.self) { data, error in
+        ApiManger.SharedApiManger.fetchLeagues(url:"https://apiv2.allsportsapi.com/\(sport ?? "football")?met=Fixtures&leagueId=\(id ?? 0)&\(sport=="tennis" ? "from=" : sport=="cricket" ? "from=" :"")from=\(date.PastDate)&to=\(date.yesterDay)&APIkey=\(ApiKey.apikey.rawValue)", decodingModel: LeaguesDetailsModel.self) { data, error in
             // Handle the API response
             
             completionHandler(data?.result)

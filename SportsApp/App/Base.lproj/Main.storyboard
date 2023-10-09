@@ -61,7 +61,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufu-hU-inO">
                                 <rect key="frame" x="0.0" y="50" width="393" height="44"/>
                                 <items>
-                                    <navigationItem title="Sports" id="TI4-y1-5qi"/>
+                                    <navigationItem title="Leagues" id="TI4-y1-5qi"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-QZ-tB2">

@@ -2,7 +2,7 @@
 //  Leaguess+CoreDataClass.swift
 //  
 //
-//  Created by Shimaa Elcc on 5.10.2023.
+//  Created by ayman on 09/10/2023.
 //
 //
 

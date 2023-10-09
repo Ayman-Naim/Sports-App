@@ -21,18 +21,7 @@ enum SportsCategory :String, CaseIterable {
             
         }
     }
-//    var eventsURL: String {
-//        switch self {
-//
-////            "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=\(id ?? 0)&from=2023-09-30&to=2024-10-10&APIkey=\(ApiKey.apikey.rawValue)"
-//        case .Football: return "https://apiv2.allsportsapi.com/football/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
-//        case .BasketBall: return "https://apiv2.allsportsapi.com/basketball/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
-//        case .Cricket: return "https://apiv2.allsportsapi.com/cricket/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
-//        case .Tennis: return "https://apiv2.allsportsapi.com/tennis/?met=Leagues&APIkey=\(ApiKey.apikey.rawValue)"
-//
-//        }
-//
-//    }
+
     var Image:String  {
         switch self {
         case .Football: return "FootBall"

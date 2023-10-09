@@ -17,6 +17,8 @@ class IncomingCell: UICollectionViewCell {
     
     @IBOutlet weak var HomeTeamLogo:UIImageView!
     
+    @IBOutlet weak var LatestDate: UILabel!
+    @IBOutlet weak var LatestTime: UILabel!
     @IBOutlet weak var HomeTeamName: UILabel!
     
     @IBOutlet weak var AwayTeamLogo: UIImageView!
@@ -29,6 +31,7 @@ class IncomingCell: UICollectionViewCell {
 //        BackgroundImage.layer.borderColor = UIColor.black.cgColor
 //        BackgroundImage.layer.cornerRadius = BackgroundImage.frame.height/2
 //        BackgroundImage.clipsToBounds = true
+        BackgroundImage.backgroundColor = .black
         
 
     }

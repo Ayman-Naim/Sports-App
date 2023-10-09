@@ -11,18 +11,20 @@ class LeagesDetailsViewModel  {
     var latestEvents: [upcommingEvents]?
     var id : Int?
     var sport: String?
-    
-    
+    var LeageName:String?
+    var image :String?
     
     
    
     
     
-    init(id: Int , sport: String ) {
+    init(id: Int , sport: String,LeageName:String,image:String ) {
         self.id = id
         self.sport = sport
-        
+        self.LeageName = LeageName
+        self.image =  image
        // print("ggg:\(currentDate)")
+        //print(image)
         LeagesEvents = [upcommingEvents]()
     }
     var url : String{
@@ -49,7 +51,7 @@ class LeagesDetailsViewModel  {
             
             completionHandler(data?.result)
             self.LeagesEvents = data?.result
-            print("Events:\(data)-\(self.id) - \(self.sport)")
+            print("Events:\(data)-\(self.id) -\(self.sport)")
         }
         
     }
@@ -62,6 +64,7 @@ class LeagesDetailsViewModel  {
             
             completionHandler(data?.result)
             self.latestEvents = data?.result
+            print("Events:\(data)-\(self.id) - \(self.sport)")
             // print("Events:\(data)")
         }
     }
@@ -71,7 +74,7 @@ class LeagesDetailsViewModel  {
         let TodayDate = Date()
         let yesterDay = TodayDate.addingTimeInterval(TimeInterval(86400 * -1))
         let PastDate = TodayDate.addingTimeInterval(TimeInterval(86400 * -14))
-        let nextDate = TodayDate.addingTimeInterval(TimeInterval(86400 * 7))
+        let nextDate = TodayDate.addingTimeInterval(TimeInterval(86400 * 14))
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd"
         let result = dateFormater.string(from: TodayDate)

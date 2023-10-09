@@ -5,11 +5,11 @@
 //  Created by ayman on 27/09/2023.
 //
 //
-//  AllLeagues.swift
-//  SportsApp
-//
-//  Created by ayman on 27/09/2023.
-//
+
+
+protocol cellReload{
+    
+}
 
 import UIKit
 import Kingfisher
@@ -54,8 +54,9 @@ class AllLeagues: UIViewController , UITableViewDelegate , UITableViewDataSource
         self.navigationController?.popViewController(animated:true)
     }
     
-   
-    
+    override func viewWillAppear(_ animated: Bool) {
+        LeaguesTable.reloadData()
+    }
     
 }
 
@@ -69,12 +70,26 @@ extension AllLeagues {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = LeaguesTable.dequeueReusableCell(withIdentifier: "FavoriteCell") as! FavoriteCell
+        let cell = LeaguesTable.dequeueReusableCell(withIdentifier: "FavoriteCell",for: indexPath) as! FavoriteCell
         
         cell.FavoriteLabel.text = self.LeagesResult?[indexPath.row].league_name
         //cell.FavoriteImage
         
-        cell.configure(sportName: viewModel.sport, leagueKey: self.LeagesResult?[indexPath.item].league_key ?? 0)
+         let result1 =  CoreDataManger.sharedCoreManger.checkIfExixst(leageName:LeagesResult![indexPath.row].league_name!)
+        if result1!{
+         //  let button = UIButton(frame: )
+            cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.favoriteButton.tintColor = UIColor.red
+
+            //print("fill")
+        }else{
+            cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+
+       
+       
+        
+        cell.configure(sportName: viewModel.sport, leagueKey: self.LeagesResult?[indexPath.item].league_key!)
         
         if let imageUrl = URL(string: self.LeagesResult?[indexPath.row].league_logo ?? "") {
             cell.FavoriteImage.kf.setImage(with: imageUrl,placeholder: UIImage(named: "placeHolder"),options: [.callbackQueue(.mainAsync)]){
@@ -105,7 +120,7 @@ extension AllLeagues {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let LeageDetailVc =  storyboard?.instantiateViewController(withIdentifier: "LeaguesCollectionViewController") as? LeaguesCollectionViewController{
-            LeageDetailVc.viewModel = LeagesDetailsViewModel(id: LeagesResult?[indexPath.row].league_key ?? 0 , sport: viewModel.sport ?? "football")
+            LeageDetailVc.viewModel = LeagesDetailsViewModel(id: LeagesResult?[indexPath.row].league_key ?? 0 , sport: viewModel.sport ?? "football",LeageName: (LeagesResult?[indexPath.row].league_name)!,image: (LeagesResult?[indexPath.row].league_logo) ?? "")
             self.navigationController?.pushViewController(LeageDetailVc, animated: true)
         }
         else{

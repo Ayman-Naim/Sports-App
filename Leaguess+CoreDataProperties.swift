@@ -2,7 +2,7 @@
 //  Leaguess+CoreDataProperties.swift
 //  
 //
-//  Created by Shimaa Elcc on 5.10.2023.
+//  Created by ayman on 09/10/2023.
 //
 //
 
@@ -17,8 +17,8 @@ extension Leaguess {
     }
 
     @NSManaged public var league_key: Int32
+    @NSManaged public var league_logo: Data?
     @NSManaged public var league_name: String?
-    @NSManaged public var league_logo: String?
     @NSManaged public var league_sportName: String?
 
 }

@@ -1,9 +1,13 @@
  # Sports App Using Swift ITI Project 
  Sports App is an iOS application that allows users to explore sports, view leagues, and stay updated with upcoming events and latest results. This README provides an overview of the app, its features, and instructions on how to set it up.
 
- team Members
- -Heba Elsisy
- -Ayman Mohamed
+ ## team Members
+ - **Heba Elsisy**
+ - **Ayman Mohamed**
+
+## vedio Demo : 
+
+<img src="https://github.com/Ayman-Naim/Sports-App/blob/main/Screens%20/Demo.gif">
 
 ## Features
 
@@ -16,8 +20,6 @@
 - **LeagueDetails ViewController**: Provides details about a league, including upcoming events, latest results, and teams.
 
 - **TeamDetails ViewController**: Displays details of a team, including team information and relevant data.
-
-
 
 
 ## Setup
@@ -38,10 +40,7 @@ To run this project locally, follow these steps:
 
    
 
-## vedio Demo : 
 
-
-<img src="https://github.com/Ayman-Naim/Sports-App/blob/main/Screens%20/Demo.gif">
 
 screenshots:
 

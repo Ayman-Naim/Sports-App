@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "1114362-football-wallpapers-hd-1920x1080-picture.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -24,6 +24,13 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let addButton = UIBarButtonItem(image:UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(favoriteButtonlicked))
+        addButton.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem = addButton
+     
+        
+        
+        
         collectionView.register(UINib(nibName: "TeamsCell", bundle: nil), forCellWithReuseIdentifier: "TeamsCell")
         collectionView.register(UINib(nibName: "IncomingCell", bundle: nil), forCellWithReuseIdentifier: "IncomingCell")
         collectionView.register(UINib(nibName: "LatestCell", bundle: nil), forCellWithReuseIdentifier: "LatestCell")
@@ -69,7 +76,122 @@ class LeaguesCollectionViewController: UICollectionViewController , UICollection
         }
         
         
+        guard let result1 = CoreDataManger.sharedCoreManger.checkIfExixst(leageName: viewModel.LeageName!)else{return}
+        if result1 == true{
+            let addButton = UIBarButtonItem(image:UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteButtonlicked))
+            addButton.tintColor = UIColor.red
+            navigationItem.rightBarButtonItem = addButton
+        }
+        
     }
+    
+    @objc func favoriteButtonlicked(_ sender: Any) {
+       //
+        
+        
+            let imageUrl = URL(string: viewModel.image ?? "")
+        
+        
+        if let url = URL(string: viewModel.image ?? "") {
+            URLSession.shared.dataTask(with: url) { [self] (data, response, error) in
+              // Error handling...
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 403{
+                        DispatchQueue.main.async { [self] in
+                            let image = UIImage(named: "placeHolder")
+                            let result = CoreDataManger.sharedCoreManger.Save(leageName: self.viewModel.LeageName, sportName: self.viewModel.sport, leageKey: Int32(self.viewModel.id!), Image: image)
+                            ckeckresult(result: result)
+                            return
+                        }
+                        
+                    }
+                    print("placeh \(httpResponse.statusCode)")
+                }
+             
+              guard let imageData = data else {
+                    return
+                  
+              }
+
+                DispatchQueue.main.async { [self] in
+                  let image = UIImage(data: imageData)
+                  
+                  let result = CoreDataManger.sharedCoreManger.Save(leageName: viewModel.LeageName, sportName: self.self.viewModel.sport, leageKey: Int32(viewModel.id!), Image: image)
+                  
+                  ckeckresult(result: result)
+                  let addButton = UIBarButtonItem(image:UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteButtonlicked))
+                  addButton.tintColor = UIColor.red
+                  navigationItem.rightBarButtonItem = addButton
+              }
+            }.resume()
+        }else{
+            
+                let image = UIImage(named: "placeHolder")
+                let result = CoreDataManger.sharedCoreManger.Save(leageName: self.viewModel.LeageName, sportName: self.viewModel.sport, leageKey: Int32(self.viewModel.id!), Image: image)
+                ckeckresult(result: result)
+                let addButton = UIBarButtonItem(image:UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteButtonlicked))
+                addButton.tintColor = UIColor.red
+                navigationItem.rightBarButtonItem = addButton
+                return
+            
+           
+            
+        }
+        
+//
+//
+//                let imageData = try? Data(contentsOf: (imageUrl ?? URL(string: ""))!)
+//                guard let data = imageData else {
+//                    let image = UIImage(named: "placeHolder")
+//                    let result = CoreDataManger.sharedCoreManger.Save(leageName: self.viewModel.LeageName, sportName: self.viewModel.sport, leageKey: Int32(self.viewModel.id!), Image: image)
+//                    ckeckresult(result: result)
+//                    return
+//                }
+//                let image = UIImage(data: data)
+//
+//                let result = CoreDataManger.sharedCoreManger.Save(leageName: viewModel.LeageName, sportName: self.self.viewModel.sport, leageKey: Int32(viewModel.id!), Image: image)
+//
+//                ckeckresult(result: result)
+//                let addButton = UIBarButtonItem(image:UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteButtonlicked))
+//                addButton.tintColor = UIColor.red
+//                navigationItem.rightBarButtonItem = addButton
+//
+//
+//
+//
+//
+//
+    }
+    
+    func ckeckresult(result:(isSaved:Bool,error:Error?)){
+        
+        if result.error != nil {
+            // Show an alert that the league already exists
+            let alertController = UIAlertController(title: "Error", message: result.error?.localizedDescription, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+        else{
+            if(result.isSaved){
+                // Show an alert to indicate success
+                let alertController = UIAlertController(title: "Success", message: "Data is successfully added.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+            else{
+                // Show an alert that the league already exists
+                let alertController = UIAlertController(title: "League Exists", message: "The Leages allready Exist", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
+    
     func getTeams (){
         if let upcomming = upcommingMatches {
             for index in upcommingMatches!{
@@ -265,7 +387,8 @@ extension LeaguesCollectionViewController {
             cell.matchTime.text = "Match Finished"
             
             cell.matchDate.text = self.latestMatches?[indexPath.row].event_final_result
-            
+            cell.LatestTime.text = self.latestMatches?[indexPath.row].event_time
+            cell.LatestDate.text = self.latestMatches?[indexPath.row].event_date
 
         
             return cell

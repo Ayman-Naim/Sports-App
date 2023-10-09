@@ -41,14 +41,14 @@
                                 <rect key="frame" x="260" y="35.666666666666664" width="40" height="39.999999999999993"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNG-9F-OIX">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Esc-9u-W7C"/>
                                             <constraint firstAttribute="width" constant="30" id="U67-P2-kIM"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.63921568630000003" green="0.38431372549999998" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                             <backgroundConfiguration key="background"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -80,4 +80,7 @@
             <point key="canvasLocation" x="135.87786259541986" y="41.197183098591552"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+    </resources>
 </document>

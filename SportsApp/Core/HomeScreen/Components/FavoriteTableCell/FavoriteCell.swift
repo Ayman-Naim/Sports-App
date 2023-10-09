@@ -10,35 +10,28 @@ import Kingfisher
 import CoreData
 
 class FavoriteCell: UITableViewCell {
-
     @IBOutlet weak var FavoriteImage: UIImageView!
-    
     @IBOutlet weak var FavoriteLabel: UILabel!
-    
     @IBOutlet weak var favoriteButton: UIButton!
-
-
+    var sportName: String?
+    var leagueKey: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         //Editing Image
         FavoriteImage.layer.borderWidth = 1
         FavoriteImage.layer.masksToBounds = false
         FavoriteImage.layer.borderColor = UIColor.white.cgColor
         FavoriteImage.layer.cornerRadius = FavoriteImage.frame.height/2
         FavoriteImage.clipsToBounds = true
-        
+    }
 
-        
-        
+    func configure(sportName: String?, leagueKey: Int?) {
+        self.sportName = sportName
+        self.leagueKey = leagueKey
     }
     
-
-
-
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                print("Error: Unable to access AppDelegate")
                return
@@ -69,6 +62,7 @@ class FavoriteCell: UITableViewCell {
                let existingLeagues = try context.fetch(fetchRequest)
                if let existingLeague = existingLeagues.first {
                    print("League already exists with the name: \(existingLeague.league_name ?? "")")
+//                   FavoriteImage.image = UIImage(named: "heart.fill")
                    
                    // Show an alert that the league already exists
                    let alertController = UIAlertController(title: "League Exists", message: "A league with the same name already exists.", preferredStyle: .alert)
@@ -85,8 +79,10 @@ class FavoriteCell: UITableViewCell {
            let newLeague = Leaguess(entity: entity, insertInto: context)
 
            newLeague.league_name = favoriteLabel
-           // newLeague.league_logo = favoriteImageURLString
+           newLeague.league_key = Int32(leagueKey ?? 0)
 
+        // newLeague.league_logo = favoriteImageURLString
+            newLeague.league_sportName = sportName
            do {
                try context.save()
                print("League saved successfully.")

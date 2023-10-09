@@ -74,7 +74,7 @@ extension AllLeagues {
         cell.FavoriteLabel.text = self.LeagesResult?[indexPath.row].league_name
         //cell.FavoriteImage
         
-        
+        cell.configure(sportName: viewModel.sport, leagueKey: self.LeagesResult?[indexPath.item].league_key ?? 0)
         
         if let imageUrl = URL(string: self.LeagesResult?[indexPath.row].league_logo ?? "") {
             cell.FavoriteImage.kf.setImage(with: imageUrl,placeholder: UIImage(named: "placeHolder"),options: [.callbackQueue(.mainAsync)]){

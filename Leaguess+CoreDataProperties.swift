@@ -19,5 +19,6 @@ extension Leaguess {
     @NSManaged public var league_key: Int32
     @NSManaged public var league_name: String?
     @NSManaged public var league_logo: String?
+    @NSManaged public var league_sportName: String?
 
 }

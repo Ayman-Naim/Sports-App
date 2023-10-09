@@ -21,4 +21,5 @@ struct Leagues : Codable{
     var league_logo  :String?
     var country_logo  :String?
     var youtubeURL: String?
+    var sportName: String?
 }

@@ -44,7 +44,7 @@ final class SportsAppTests: XCTestCase {
             }
             
             XCTAssertGreaterThan(allLeages.count, 0)
-           
+            
             expectaation.fulfill()
         }
         waitForExpectations(timeout: 5000)
@@ -61,7 +61,7 @@ final class SportsAppTests: XCTestCase {
             }
             
             XCTAssertGreaterThan(LeagesD.count, 0)
-           
+            
             expectaation.fulfill()
         }
         waitForExpectations(timeout: 5000)
@@ -77,15 +77,39 @@ final class SportsAppTests: XCTestCase {
                 expectaation.fulfill()
                 return
             }
-         
-            XCTAssertGreaterThan((Team.first?.players?.count)!, 0)
             
-           
+            XCTAssertGreaterThan((Team.first?.players?.count)!, 0)
+
             expectaation.fulfill()
         }
-       
+        
         waitForExpectations(timeout: 5000)
     }
+   
+    
+    
+    // MARK: - CORE DATA TESTS
+       
+       func testSaveLeaguesCD(){
+           let coreDataManager = CoreDataManger.sharedCoreManger
+           let leagueName = "League"
+           let sportName = "Sport"
+           let leagueKey = 123
+           let testImage = UIImage(named: "re")
+           
+           let result = coreDataManager.Save(leageName: leagueName, sportName: sportName, leageKey: Int32(leagueKey), Image: testImage)
+           
+           XCTAssertTrue(result.isSaved, "League should be saved successfully")
+           XCTAssertNil(result.error, "No error should be returned")
+           
+           if let leagues = coreDataManager.fetchData().Leagues {
+               for league in leagues {
+                   if league.league_name == leagueName {
+                       coreDataManager.deleteLeagueFromCoreData(league: league)
+                   }
+               }
+           }
+       }
     func testcoreData(){
         let result = CoreDataManger.sharedCoreManger.fetchData()
         
@@ -95,17 +119,19 @@ final class SportsAppTests: XCTestCase {
             
         }
         XCTAssert(fav.count >= 0)
-          
+        
     }
     
     func testcoreData2(){
         let result = CoreDataManger.sharedCoreManger.checkIfExixst(leageName: "  ")
         
         XCTAssert(result == false )
-          
+        
     }
-}
-
-
-
+    
+    
+   }
+   
+        
+    
 

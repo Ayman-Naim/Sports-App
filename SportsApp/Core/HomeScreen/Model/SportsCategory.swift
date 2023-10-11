@@ -36,7 +36,7 @@ enum SportsCategory :String, CaseIterable {
 
 
 enum ApiKey :String {
-    case apikey = "7dbbe4899351e7c403259b7b2f31e9bf9aaba8a00cb18487724163d013402aaf"
+    case apikey = "99cb45554546b20940cf95bf0c822f2ab58ed09c0cf08c0975efcc1bd6fc8c54"
     
     
 }

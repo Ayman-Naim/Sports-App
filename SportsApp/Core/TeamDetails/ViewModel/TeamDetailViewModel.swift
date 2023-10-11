@@ -22,7 +22,7 @@ class TeamDetailViewModel{
     
  
    
-    func FetchTeamDetails(completionHandler: @escaping ([Result?]?) -> Void) {
+    func FetchTeamDetails(completionHandler: @escaping ([Result]?) -> Void) {
         // Call the fetchLeagues function from ApiManger to fetch data from the API
       
         ApiManger.SharedApiManger.fetchLeagues(url:"https://apiv2.allsportsapi.com/\(sport ?? "football")/?&met=Teams&teamId=\(id ?? 0)&APIkey=\(ApiKey.apikey.rawValue)", decodingModel: TeamModel.self) { data, error in

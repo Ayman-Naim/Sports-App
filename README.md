@@ -8,7 +8,7 @@
 ## vedio Demo : 
 
 
-<img src="https://github.com/Ayman-Naim/Sports-App/blob/dev/Screens/demo.gif">
+<img src="https://github.com/Ayman-Naim/Sports-App/blob/dev/Screens/Demo1.gif">
 
 
 ## Features
@@ -38,7 +38,11 @@ To run this project locally, follow these steps:
 6. Paste the Api key at The ApiKey Enum
 7. Build and run the app on a simulator or a physical device.
 
- 
+ ## dependencies
+  - **[Alamofire](https://github.com/Alamofire/Alamofire)**
+  - **[Kingfisher](https://github.com/onevcat/Kingfisher)**
+  - **[lottie-ios](https://github.com/airbnb/lottie-ios)**
+  
 
    
 
